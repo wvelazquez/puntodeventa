@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Livewire\CategoriesController;
+use App\http\Livewire\Categories;
+use App\Http\Livewire\Coins;
+use App\Http\Livewire\Pos;
+use App\Http\Livewire\Products;
+use App\Models\Denomination;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('categories', CategoriesController::class);
+Route::get('categories', Categories::class);
+Route::get('products', Products::class);
+Route::get('denominations', Coins::class);
+Route::get('pos', Pos::class);

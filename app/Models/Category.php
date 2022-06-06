@@ -11,4 +11,18 @@ class Category extends Model
     
     protected $fillable = ['name','image'];
 
+    //Para poder eliminar con relaciones de tablas
+    //obtener la relacion en ambas partes
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
+
+    public function getImagenAttribute(){
+        if(file_exists('storage/categories/' . $this->image))
+        return $this->image;
+        else
+        return 'noimage.jpg';
+    }
+
+
 }
